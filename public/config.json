@@ -1,0 +1,19 @@
+{
+    "UI_ENVIRONMENT": "Development",
+    "Development": {
+      "SERVER_URL": "http://localhost:5001",
+      "SERVER_URL_LOGIN": "http://192.168.2.130:5001",
+      "APP_TITLE": "Sz Doc (Dev)"
+    },
+    "Production": {
+      "SERVER_URL": "https://openai.syzero.com",
+      "SERVER_URL_LOGIN": "https://authorization.syzero.com",
+      "APP_TITLE": "Sz Doc"
+    },
+    "Test": {
+      "SERVER_URL": "https://openai.test.syzero.com",
+      "SERVER_URL_LOGIN": "https://authorization.test.syzero.com",
+      "APP_TITLE": "Sz Doc (Test)"
+    }
+  }
+  
