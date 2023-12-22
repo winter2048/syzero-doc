@@ -3,15 +3,16 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppStore";
 
 function RequireAuth({ children }: { children: JSX.Element }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const { token } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     if (!token) {
-      navigate("/login");
+      navigate(`/login?redirect=${location.pathname}`);
     }
-  }, [navigate, token]);
+  }, [location.pathname, navigate, token]);
 
   return children;
 }

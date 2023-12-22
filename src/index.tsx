@@ -37,7 +37,7 @@ const RootElement = (props: { env: any }) => {
 };
 
 axios.get("/config.json").then((res) => {
-  const env = res.data[res.data.UI_ENVIRONMENT];
+  const env = {...res.data.COMMON,...res.data[res.data.UI_ENVIRONMENT]};
   root.render(
     <StoreProvider store={store}>
       <RootElement env={env} />

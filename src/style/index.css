@@ -12,3 +12,10 @@ body[tomato-theme="dark"] {
     --color-text-1: rgba(255, 255, 255, 0.85);
     --color-text-2: rgba(255, 255, 255, 0.45)
 }
+
+.sy-common-center {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}

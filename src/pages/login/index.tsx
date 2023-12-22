@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form, Input, message } from "antd";
-import { UserOutlined, EditOutlined } from '@ant-design/icons';
-import { useNavigate } from "react-router-dom";
+import { UserOutlined, EditOutlined } from "@ant-design/icons";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Authorization } from "../../api";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppStore";
 import { setToken } from "../../store/reducers/user";
@@ -16,9 +16,9 @@ type FieldType = {
 function Login() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const onFinish = async (values: FieldType) => {
-    console.log("Success:", values);
     const token = await Authorization.Login(
       values.userName,
       values.password
@@ -29,8 +29,13 @@ function Login() {
     }
 
     window.localStorage.setItem("token", token.data);
-    dispatch(setToken({token: token.data}));
-    navigate("/chat");
+    dispatch(setToken({ token: token.data }));
+    const redirect = new URLSearchParams(location.search).get("redirect");
+    if (redirect) {
+      navigate(redirect);
+    } else {
+      navigate("/chat");
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {

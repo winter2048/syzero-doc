@@ -11,6 +11,8 @@ interface IConfig{
   SERVER_URL_LOGIN?: string;
   APP_TITLE?: string;
   THEME?: string; 
+  ICON_URL?: string[];
+  GITHUB_URL?: string;
 }
 
 interface RequestResult<T> {
@@ -68,4 +70,26 @@ interface SceneDto {
   content: Array<ChatMessageDto>;
   createTime?: string;
   isDefault: boolean
+}
+
+interface MenuItem {
+  title: string;
+  path?: string;
+  icon?: string | React.Element;
+  children?: MenuItem[];
+}
+
+interface Route {
+  /** 在应用内显示 */
+  appIn: RouteItem[];
+  /** 在应用外显示 */
+  appOut: RouteItem[];
+}
+
+interface RouteItem {
+  path: string;
+  title: string;
+  auth?: boolean;
+  component: Promise<any>;
+  lazy?: boolean;
 }

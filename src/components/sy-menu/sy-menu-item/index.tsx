@@ -7,8 +7,8 @@ export const SyMenuItem = (
     props: {
       className?: string;
       icon?: React.ReactNode;
-      urlPath: string;
-      name: string;
+      path?: string;
+      title: string;
     }
   ) => {
     const navigate = useNavigate();
@@ -18,17 +18,17 @@ export const SyMenuItem = (
       <Button
         className={
           "sy-layout-menu-btn" +
-          (location.pathname === props.urlPath
+          (location.pathname === props.path
             ? " sy-layout-menu-btn-active "
             : " ") +
           props.className
         }
         icon={props.icon}
         onClick={() => {
-          navigate(props.urlPath);
+          props.path && navigate(props.path);
         }}
       >
-        {props.name}
+        {props.title}
       </Button>
     );
   }
