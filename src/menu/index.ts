@@ -4,9 +4,7 @@ import {
   WalletOutlined,
   ReadOutlined,
   SettingOutlined,
-  GithubOutlined,
-  UserOutlined,
-  createFromIconfontCN,
+  UserOutlined
 } from "@ant-design/icons";
 
 const menus: MenuItem[] = [

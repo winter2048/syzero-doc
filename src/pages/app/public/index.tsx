@@ -1,10 +1,13 @@
+import { Flex } from "antd";
+
 function Setting() {
-    return (
-      <div className="Chat">
-        <h2>公共</h2>
+  return (
+    <Flex className="sy-content">
+      <div className="sy-content-title">
+        <h3>公共</h3>
       </div>
-    );
-  }
-  
-  export default Setting;
-  
+    </Flex>
+  );
+}
+
+export default Setting;

@@ -25,7 +25,7 @@ const RootElement = (props: { env: any }) => {
         <ConfigProvider
           theme={{
             algorithm:
-              THEME === "dark" ? theme.darkAlgorithm : theme.compactAlgorithm,
+              THEME === "dark" ? theme.darkAlgorithm : undefined,
             cssVar: true,
           }}
         >
